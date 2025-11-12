@@ -1,0 +1,25 @@
+{
+  "name": "projeto-livraria-mern",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "app": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Guilherme dos Reis",
+  "license": "ISC",
+  "dependencies": {
+    "app": "^0.1.0",
+    "body-parser": "^2.2.0",
+    "config": "^4.1.1",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "mongodb": "^7.0.0",
+    "mongoose": "^8.19.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}

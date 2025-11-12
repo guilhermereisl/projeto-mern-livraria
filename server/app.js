@@ -7,6 +7,8 @@ const bookRouter = require('./routes/api/books');
 
 const cors = require('cors');
 
+require('dotenv').config();
+
 const app = express();
 
 //Middleware 

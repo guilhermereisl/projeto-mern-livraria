@@ -3,12 +3,12 @@ import "../styles.css";
 import axios from "axios";
 
 const Datatable = ({ books}) => {
-
+const apiUrl = import.meta.env.VITE_API_URL;
   const navi = useNavigate();
 
   const onDeleteClick = (id) => {
     axios
-      .delete(`http://localhost:8082/api/books/${id}`)
+      .delete(`${apiUrl}/api/books/${id}`)
       .then((res) => {
         navi("/");
       })

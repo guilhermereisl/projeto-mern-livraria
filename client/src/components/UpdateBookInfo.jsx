@@ -4,7 +4,6 @@ import axios from "axios";
 import "../styles.css";
 
 function UpdateBookInfo(props) {
-  const apiUrl = import.meta.env.VITE_API_URL;
   const [book, setBook] = useState({
     title: "",
     isbn: "",
@@ -14,11 +13,14 @@ function UpdateBookInfo(props) {
     publisher: "",
   });
 
+  const apiUrl = import.meta.env.VITE_API_URL;
+
   const { id } = useParams();
   const navigate = useNavigate();
 
   useEffect(() => {
     axios
+      //.get(`http://localhost:8082/api/books/${id}`)
       .get(`${apiUrl}/api/books/${id}`)
       .then((res) => {
         setBook({
@@ -52,6 +54,7 @@ function UpdateBookInfo(props) {
     };
 
     axios
+      //.put(`http://localhost:8082/api/books/${id}`, data)
       .put(`${apiUrl}/api/books/${id}`, data)
       .then((res) => {
         navigate(`/show-book/${id}`);

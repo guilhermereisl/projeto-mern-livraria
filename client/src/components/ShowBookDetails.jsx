@@ -4,14 +4,15 @@ import "../styles.css";
 import axios from "axios";
 
 function ShowBookDetails(props) {
-  const apiUrl = import.meta.env.VITE_API_URL;
   const [book, setBook] = useState({});
+  const apiUrl = import.meta.env.VITE_API_URL;
 
   const { id } = useParams();
   const navigate = useNavigate();
 
   useEffect(() => {
     axios
+      //.get(`http://localhost:8082/api/books/${id}`)
       .get(`${apiUrl}/api/books/${id}`)
       .then((res) => {
         setBook(res.data);
@@ -23,7 +24,7 @@ function ShowBookDetails(props) {
 
   const onDeleteClick = (id) => {
     axios
-      .delete(`${apiUrl}/api/books/${id}`)
+      .delete(`http://localhost:8082/api/books/${id}`)
       .then((res) => {
         navigate("/");
       })

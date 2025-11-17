@@ -5,11 +5,12 @@ import { Link } from "react-router-dom";
 import Datatable from "./Datatable";
 
 function ShowBookList() {
-  const apiUrl = import.meta.env.VITE_API_URL;
   const [books, setBooks] = useState([]);
+  const apiUrl = import.meta.env.VITE_API_URL;
 
   useEffect(() => {
     axios
+      //.get("http://localhost:8082/api/books")
       .get(`${apiUrl}/api/books`)
       .then((res) => {
         setBooks(res.data);

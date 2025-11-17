@@ -3,8 +3,9 @@ import "../styles.css";
 import axios from "axios";
 
 const Datatable = ({ books}) => {
-const apiUrl = import.meta.env.VITE_API_URL;
+
   const navi = useNavigate();
+  const apiUrl = import.meta.env.VITE_API_URL;
 
   const onDeleteClick = (id) => {
     axios

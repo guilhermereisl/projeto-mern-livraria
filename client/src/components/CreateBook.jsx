@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
+import API from "../API";
+import "../styles.css";
 
 import { useNavigate } from "react-router-dom";
 
 const CreateBook = (props) => {
   // Define the state with useState hook
-  const apiUrl = import.meta.env.VITE_API_URL;
   const navigate = useNavigate();
   const [book, setBook] = useState({
     title: "",
@@ -24,8 +24,8 @@ const CreateBook = (props) => {
   const onSubmit = (e) => {
     e.preventDefault();
 
-    axios
-      .post(`${apiUrl}/api/books`, book)
+    API
+      .post("/api/books", book)
       .then((res) => {
         setBook({
           title: "",
@@ -47,7 +47,7 @@ const CreateBook = (props) => {
   return (
     <div className="createbook">
 
-      <Link to="/" className="link-show-book-list">
+      <Link to="/show-book" className="link-show-book-list">
         <button type="button" className="btn-show-book-list btn">
           Show BooK List
         </button>

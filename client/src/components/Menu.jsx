@@ -1,5 +1,6 @@
 import { RiCloseLargeFill } from "react-icons/ri";
 import { Link } from "react-router-dom";
+import "../styles.css";
 
 function Menu({ toggleSidebar }) {
   return (
@@ -7,7 +8,6 @@ function Menu({ toggleSidebar }) {
       <span className="menu-btn" onClick={toggleSidebar}>
       <RiCloseLargeFill />
       </span>
-      <h1 className="logo">LOGO</h1>
       <nav>
         <li>
           <Link to="/">⭐ - Show BooK List</Link>

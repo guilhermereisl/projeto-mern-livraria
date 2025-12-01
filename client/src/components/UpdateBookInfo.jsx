@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
-import axios from "axios";
+import API from "../API";
 import "../styles.css";
 
 function UpdateBookInfo(props) {
@@ -13,15 +13,12 @@ function UpdateBookInfo(props) {
     publisher: "",
   });
 
-  const apiUrl = import.meta.env.VITE_API_URL;
-
   const { id } = useParams();
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios
-      //.get(`http://localhost:8082/api/books/${id}`)
-      .get(`${apiUrl}/api/books/${id}`)
+    API
+      .get(`/api/books/${id}`)
       .then((res) => {
         setBook({
           title: res.data.title,
@@ -53,9 +50,8 @@ function UpdateBookInfo(props) {
       publisher: book.publisher,
     };
 
-    axios
-      //.put(`http://localhost:8082/api/books/${id}`, data)
-      .put(`${apiUrl}/api/books/${id}`, data)
+    API
+      .put(`/api/books/${id}`, data)
       .then((res) => {
         navigate(`/show-book/${id}`);
       })
@@ -67,7 +63,7 @@ function UpdateBookInfo(props) {
   return (
     <div className="update-book">
       
-      <Link to="/" className="link-show-book-list">
+      <Link to="/show-book" className="link-show-book-list">
         <button type="button" className="btn-show-book-list btn">
           Show BooK List
         </button>
